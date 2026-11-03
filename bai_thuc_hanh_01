@@ -1,1 +1,147 @@
+#include<bits/stdc++.h>
+using namespace std;
+class phuongtien{
+	private:
+		int maxe;
+		string loaixe;
+		int giovao;
+		int tgdo;
+		double phi;
+		
+	public 
+		phuongtien(){
+			maxe=0;
+			loaixe="";
+			giovao=0;
+			tgdo=0;
+			phi=0.0;
+		}
+		phuongtien(int ma, string loai, int gio, in tg){
+			maxe=ma;
+			loaixe=loai;
+			giovao=gio;			
+			tgdo=tg;
+			phi=tinhphi();
+			
+		}
+		
+		int laymaxe() const{return maxe;}
+		string layloaixe() const{return loaixe;}
+		int laygiovao() const{return giovao;}
+		int laytgdo() const{return tgdo;}
+		double tinhphi() const{return phi;}
+		
+		double tinhphi() const{
+			double gia=0;
+			if(loaixe="Oto"){
+				gia=6.00;
+			}
+			else if(loaixe="xe may"){
+				gia=4.00;
+			}
+			else if(loaixe="xe dap"){
+				gia=2.00;
+			}
+			if()
+			
+		}
+		
+		void datmaxe(int ma){
+			maxe=ma;
+		}
+		void datloaixe(string loai){
+			loaixe=loai;	
+		}
+		void datgiovao(int gio){
+			giovao=gio;
+			phi=tinhphi;
+		}
+		void dattgdo(int tgdo){
+			tgdo=tg;
+			phi=tinhphi;
+		}
+		
+		void hienthi() const{
+			cout << maxe << loaixe << giovao << tgdo << tinhphi; }
+	
+};
+
+class baixe{
+	private:
+		int mabai;
+		char kichthuoc;
+		phuongtien pt1, pt2, pt3;
+		bool co1,co2,co3;
+		
+	public baixe();
+		baixe(){
+			mabai=0;
+			kt ='S';
+			co1=co2=co3 =false;
+		}
+		baixe(int ma, char kt){
+			mabai = ma;
+			kichthuoc = kt;
+			co1=co2=co3 =false;
+		}
+		int layma() const {return mabai;}
+		char laykichthuoc() const {return kichthuoc;}
+		int succhua () const {
+			if (kichthuoc == 'S')
+				return 1;
+			else if (kichthuoc == 'M') {
+				return 2;
+			}
+			else if(kichthuoc == 'L'){
+				return 3;
+			}
+			return 0;
+		}
+		bool them(const phuongtien& v){
+			if(!co1){
+				pt1 = v;
+				co1 = true;
+				return true;
+			}
+		}
+		bool xoa(int maxe){
+			if(co1 && pt1.laymaxe()==maxe){
+				pt1 = phuongtien();
+				co1 = false;
+				return true;
+			}
+			if(co2 && pt2.laymaxe()==maxe){
+				pt2 = phuongtien();
+				co2 = false;
+				return true;
+			}
+			if(co3 && pt3.laymaxe()==maxe){
+				pt3 = phuongtien();
+				co3 = false;
+				return true;
+			}
+			return 0;
+		}
+		bool chua(int maxe) const{
+			return (co1 && pt1.laymaxe()==maxe) || (co2 && pt2.laymaxe()==maxe) || (co3 && pt3.laymaxe()==maxe) 
+		}
+		void hienthi() const{
+			cout << "\nMa bai: " << mabai << "\nKich thuoc: " << kichthuoc;
+				
+		}
+		bool coloai(string loai, int& dem, double& tong) const;
+};
+
+class SystemInterface{
+	private:
+		baixe bai1, bai2, bai3;
+		bool co1, co2, co3;
+	public:
+		SystemInterface();
+		void runMenu();
+};
+int main(){
+	
+	hienthi();
+}
 
